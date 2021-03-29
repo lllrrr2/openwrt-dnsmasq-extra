@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnsmasq-extra
-PKG_VERSION:=2021-03-27
+PKG_VERSION:=2021-03-29
 PKG_RELEASE:=1.7.6
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
