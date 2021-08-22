@@ -16,8 +16,7 @@ time cidr-merger <<-EOF >chnroute.txt.new
 EOF
 
 # add checkip.synology.com
-time cidr-merger <<-EOF >chnroute.txt
-	$(cat chnroute.txt.new)
+time cidr-merger <<-EOF >>chnroute.txt.new
 	104.248.79.120
 	159.89.129.146
 	165.227.63.200
@@ -26,6 +25,12 @@ time cidr-merger <<-EOF >chnroute.txt
 	206.189.214.49
 	142.93.81.166
 	159.65.77.153
+EOF
+
+# min netmask >= /24
+time cidr-merger <<-EOF >chnroute.txt
+	$(cat chnroute.txt.new)
+	$(sed 's+\.[^\.]*$+.0/24+g' chnroute.txt.new)
 EOF
 
 sed '/^[ \t\s]*$/d' -i chnroute.txt
