@@ -87,6 +87,7 @@ chenxm.cc
 hanfan.cc
 shuichan.cc
 shijian.cc
+jkpan.cc
 upan.cc
 zyan.cc
 ngacn.cc
@@ -99,6 +100,7 @@ dtmao.cc
 niubo.cc
 go.cc
 moko.cc
+juduo.cc
 vicp.cc
 cip.cc
 pp.cc
@@ -112,6 +114,7 @@ superboss.cc
 neets.cc
 dious.cc
 soxs.cc
+66ys.cc
 rarbt.cc
 cnpet.cc
 coolkit.cc
@@ -158,6 +161,7 @@ ele.me
 wse.me
 dute.me
 shijue.me
+kazaff.me
 xulihang.me
 suxing.me
 chuansong.me
@@ -167,6 +171,7 @@ haoji.me
 zxzj.me
 vk.me
 meipian.me
+ihuan.me
 yuanbin.me
 powervision.me
 surmon.me
@@ -176,6 +181,7 @@ bolo.me
 bucuo.me
 yaohuo.me
 oppoer.me
+ffis.me
 fens.me
 draveness.me
 lrts.me
@@ -211,6 +217,7 @@ iyd.wang
 zx110.org
 3322.org
 icourse163.org
+wanimal1983.org
 jintang114.org
 cmd5.org
 8866.org
@@ -251,6 +258,7 @@ ixdc.org
 miot-spec.org
 nosec.org
 inforsec.org
+zxinc.org
 chinesemooc.org
 cnsoc.org
 newssc.org
@@ -268,7 +276,9 @@ zhongguojie.org
 staticfile.org
 goframe.org
 beijing-time.org
+arctime.org
 nmcheck.gnome.org
+ca-sme.org
 securityfrontline.org
 tushare.org
 chinaculture.org
@@ -328,6 +338,8 @@ yeeyan.org
 apachecn.org
 bimcn.org
 blendercn.org
+sfcdn.org
+anzhen.org
 gushiwen.org
 vechain.org
 casbin.org
@@ -346,6 +358,7 @@ bjjubao.org
 gxjubao.org
 daniao.org
 laomaotao.org
+gubo.org
 neo.org
 popgo.org
 gohugo.org
@@ -441,6 +454,7 @@ openresty.org
 chinagwy.org
 gjgwy.org
 sunwy.org
+aqbz.org
 rdgz.org
 chinadmoz.org
 3m.com.sg
@@ -457,6 +471,7 @@ zhuanzhi.ai
 bom.ai
 ones.ai
 1415926.mobi
+topmba.mobi
 mlook.mobi
 jisuan.mobi
 baiduyun.wiki
@@ -474,18 +489,22 @@ ctrip-ttd.hk
 yahui.hk
 tmall.hk
 kaola.com.hk
+bosera.com.hk
 crc.com.hk
 conpak.com.hk
+hrintl.com.hk
 pingan.com.hk
 hopetrip.com.hk
 xht.com.hk
 ipo.hk
 sonkwo.hk
 gap.hk
+sass.hk
 tnet.hk
 compassedu.hk
 fhyx.hk
 alipay.hk
+rfdy.hk
 ssine.ink
 only4.work
 coder.work
@@ -504,12 +523,14 @@ lizhi.fm
 douban.fm
 anyway.fm
 axhub.im
+0x0d.im
 f2e.im
 netease.im
 cli.im
 token.im
 juejin.im
 yixin.im
+zego.im
 shimo.im
 drip.im
 tower.im
@@ -536,6 +557,7 @@ blingabc.com
 sino-corrugated.com
 eoeandroid.com
 ofcard.com
+xunicard.com
 okcard.com
 camcard.com
 jescard.com
@@ -588,6 +610,7 @@ huaxing.com
 gexing.com
 woyaogexing.com
 qqgexing.com
+mingxing.com
 qumingxing.com
 xingxing.com
 huodongxing.com
@@ -605,6 +628,7 @@ lamaying.com
 tianmaying.com
 51jingying.com
 yijingying.com
+iflying.com
 91yunying.com
 xiaoying.com
 itying.com
@@ -618,6 +642,7 @@ cppblog.com
 cnitblog.com
 xttblog.com
 moyublog.com
+fundebug.com
 52pk.com
 96pk.com
 1717pk.com
@@ -627,6 +652,8 @@ javaapk.com
 coolapk.com
 9upk.com
 mysubmail.com
+ewomail.com
+qmail.com
 qqmail.com
 hotmail.com
 foxmail.com
@@ -681,6 +708,7 @@ diskgenius.com
 drivergenius.com
 wns.windows.com
 microsoft.com
+big-bit.com
 zhbit.com
 ucnest.com
 dragonest.com
@@ -733,6 +761,7 @@ virbox.com
 cupfox.com
 sinaimg.cn
 gtimg.cn
+banwagong.men
 zhiren.ren
 utom.design
 pm25.in
@@ -776,6 +805,7 @@ imweb.io
 gxb.io
 webmagic.io
 mydoc.io
+anyrtc.io
 rt-thread.io
 dcloud.io
 daocloud.io
@@ -822,6 +852,7 @@ tokenpocket.pro
 yuedu.pro
 logoly.pro
 985.so
+yhdm.so
 macapp.so
 80s.so
 kissanime.to
@@ -871,6 +902,7 @@ atoolbox.net
 repubblica.it
 sina.lt
 sh.st
+519.best
 t.tt
 0061.com.au
 royalpay.com.au
@@ -902,13 +934,16 @@ acg.tv
 toubang.tv
 haochang.tv
 tiantangyingshi.tv
+juji.tv
 bilibili.tv
 zhanqi.tv
 yixi.tv
 znjj.tv
 jjmj.tv
 chinalink.tv
+com.tv
 quankan.tv
+ziyuan.tv
 fun.tv
 acfun.tv
 mandao.tv
@@ -950,6 +985,7 @@ qianyan.biz
 dxnf.xyz
 csig.xyz
 xtun.xyz
+markdown.xyz
 testip.xyz
 apass.xyz
 west.xyz

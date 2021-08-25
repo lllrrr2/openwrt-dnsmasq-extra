@@ -44,6 +44,14 @@ sed '/^google.*analytics.com$/d' -i gfwlist
 
 # ------------------ adblock ------------------
 curl -sSL https://anti-ad.net/domains.txt -o adblock
+cat <<-EOF >>adblock
+	c.msn.com
+	ntp.msn.com
+	ntp.msn.cn
+	assets.msn.cn
+	api.msn.com
+	browser.events.data.msn.com
+EOF
 time shadowsocks-helper tide -i adblock -o adblock
 
 # whitelist
