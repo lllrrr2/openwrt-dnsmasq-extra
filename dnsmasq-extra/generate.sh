@@ -57,6 +57,7 @@ time cidr-merger <<-EOF >chnroute.txt.new
 
 	$(for it in 132203 45090 45102 136907 3462 9381 9269 135377 64050 136038 31898 48266; do
 		echo >&2 "ASN$it"
+		echo
 		curl -skL --speed-limit 100000 --speed-time 30 https://api.bgpview.io/asn/$it/prefixes | jq -r '.data.ipv4_prefixes[]|.prefix' 2>/dev/null ||
 			curl -skL --speed-limit 50000 --speed-time 90 https://api.bgpview.io/asn/$it/prefixes | jq -r '.data.ipv4_prefixes[]|.prefix'
 	done)
@@ -105,13 +106,16 @@ echo >&2 "# gfwlist.lite"
 sed 's|^\.|.*\\.|g; s+$+$+g' tldn >gfwlist.blacklist
 grep -Exv -f gfwlist.blacklist gfwlist >gfwlist.lite
 rm -f gfwlist.blacklist
+echo
 # ------------------ gfwlist ------------------
 
 # ------------------ adblock ------------------
 
 curl -sSL https://anti-ad.net/domains.txt -o adblock
-curl -sSL https://raw.githubusercontent.com/VeleSila/yhosts/master/hosts | sed -n 's+^0.0.0.0 *++p' >adblock.lite
+curl_githubusercontent https://raw.githubusercontent.com/VeleSila/yhosts/master/hosts | sed -n 's+^0.0.0.0 *++p' >adblock.lite
 curl_githubusercontent https://raw.githubusercontent.com/neodevpro/neodevhost/master/customblocklist | tee -a adblock adblock.lite >/dev/null
+curl_githubusercontent https://raw.githubusercontent.com/code-shiromi/Quantumult-X-Resources/main/remote/filters/ad.list |
+	sed -n 's+^HOST.*,\(.*\),AdBlock$+\1+p' | tee -a adblock adblock.lite >/dev/null
 cat <<-EOF | tee -a adblock adblock.lite >/dev/null
 	c.msn.com
 	ntp.msn.com
@@ -124,10 +128,14 @@ EOF
 echo >&2 "# adblock"
 time shadowsocks-helper tide -i adblock -o adblock
 echo >&2 "# adblock.lite"
-time shadowsocks-helper tide -i adblock.lite -o adblock.lite
+time shadowsocks-helper tide -i adblock.lite -o adblock.lite_whitelist
+grep -Ex -f adblock.lite_whitelist adblock >adblock.lite
 
 # whitelist
 sed 's+\.$++g' -i adblock adblock.lite
+sed '/^bj.bcebos.com/d; /^puui.qpic.cn/d; /^zhanzhang.toutiao.com/d' -i adblock adblock.lite
+sed '/weixinbridge/d' -i adblock adblock.lite
+sed '/bootcdn.net/d' -i adblock adblock.lite
 sed '/wns.windows.com/d' -i adblock adblock.lite
 sed '/ip-api.com/d; /pv.sohu.com/d' -i adblock adblock.lite
 sed '/click.simba.taobao.com/d' -i adblock adblock.lite

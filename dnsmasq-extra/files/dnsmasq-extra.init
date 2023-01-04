@@ -1,5 +1,5 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2018-2022 honwen <https://github.com/honwen>
+# Copyright (C) 2018-2023 honwen <https://github.com/honwen>
 
 START=69
 NAME=dnsmasq-extra
@@ -210,7 +210,7 @@ start() {
 			uci_bool_by_type ${NAME} general overwrite_smartdns && {
 				[ -x /usr/bin/smartdns ] && {
 					pgrep -f 'smartdns.cn.conf' >/dev/null || {
-						sed 's+\(enable_cn.*\)[0-9]+\11+g' -i /etc/config/smartdns
+						sed 's+\(enable_cn[ \t]*\)[^ ]*$+\1yes+g' -i /etc/config/smartdns
 						/etc/init.d/smartdns restart >/dev/null 2>&1
 					}
 					local smartdns_port=$(uci_get_by_type smartdns smartdns port 0000)
@@ -223,7 +223,7 @@ start() {
 				[ -x /usr/bin/dnsproxy ] && {
 					local dnsproxy_port=$(uci_get_by_type dnsproxy dnsproxy port_cn 0000)
 					pgrep -f "\-p $dnsproxy_port" >/dev/null || {
-						sed 's+\(enable_cn.*\)[0-9]+\11+g' -i /etc/config/dnsproxy
+						sed 's+\(enable_cn[ \t]*\)[^ ]*$+\1yes+g' -i /etc/config/dnsproxy
 						/etc/init.d/dnsproxy restart >/dev/null 2>&1
 					}
 					echo "server=127.0.0.1#$dnsproxy_port" >>${TARGET}/misc_custom.conf
