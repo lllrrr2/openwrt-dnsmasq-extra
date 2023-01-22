@@ -284,7 +284,11 @@ restart() {
 update() {
 	baseurl="https://raw.githubusercontent.com/honwen/openwrt-${NAME}/master/${NAME}/files"
 
-	if ${_CURL} "$(echo $baseurl | sed 's+raw.githubusercontent+ghproxy.com/https://raw.githubusercontent+g')/dnsmasq-extra.conf" | grep -q 'plugins'; then
+	if ${_CURL} "$(echo $baseurl | sed 's+raw.githubusercontent+ghproxy.net/https://raw.githubusercontent+g')/dnsmasq-extra.conf" | grep -q 'plugins'; then
+		baseurl="$(echo $baseurl | sed 's+raw.githubusercontent+ghproxy.net/https://raw.githubusercontent+g')"
+	elif ${_CURL} "$(echo $baseurl | sed 's+raw.githubusercontent+gh.con.sh/https://raw.githubusercontent+g')/dnsmasq-extra.conf" | grep -q 'plugins'; then
+		baseurl="$(echo $baseurl | sed 's+raw.githubusercontent+gh.con.sh/https://raw.githubusercontent+g')"
+	elif ${_CURL} "$(echo $baseurl | sed 's+raw.githubusercontent+ghproxy.com/https://raw.githubusercontent+g')/dnsmasq-extra.conf" | grep -q 'plugins'; then
 		baseurl="$(echo $baseurl | sed 's+raw.githubusercontent+ghproxy.com/https://raw.githubusercontent+g')"
 	elif ${_CURL} "$(echo $baseurl | sed 's+raw.githubusercontent+mirror.ghproxy.com/https://raw.githubusercontent+g')/dnsmasq-extra.conf" | grep -q 'plugins'; then
 		baseurl="$(echo $baseurl | sed 's+raw.githubusercontent+mirror.ghproxy.com/https://raw.githubusercontent+g')"

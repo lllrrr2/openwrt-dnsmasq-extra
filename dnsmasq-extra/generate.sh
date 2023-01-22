@@ -11,7 +11,7 @@ _path=$(dirname $(readlink -f $0))
 
 curl_githubusercontent() {
 	url="$1"
-	curl -skL --speed-limit 100000 --speed-time 10 "https://ghproxy.com/${url}" ||
+	curl -skL --speed-limit 100000 --speed-time 10 "https://ghproxy.net/${url}" ||
 		curl -skL --speed-limit 100000 --speed-time 10 "https://ghproxy.com/${url}" ||
 		curl -skL --speed-limit 100000 --speed-time 10 "$(echo ${url} | sed 's+raw.githubusercontent.com+cdn.staticaly.com/gh+g')" ||
 		curl -skL --speed-limit 100000 --speed-time 10 "${url}"
@@ -55,7 +55,7 @@ time cidr-merger <<-EOF >chnroute.txt.new
 			sed -n 's+IP-CIDR,\(.*\),no-resolve+\1+p'
 	)
 
-	$(for it in 132203 45090 45102 136907 3462 9381 9269 135377 64050 136038 31898 48266; do
+	$(for it in 132203 45090 45102 136907 3462 9381 9269 135377 64050 136038 31898 48266 25820; do
 		echo >&2 "ASN$it"
 		echo
 		curl -skL --speed-limit 100000 --speed-time 30 https://api.bgpview.io/asn/$it/prefixes | jq -r '.data.ipv4_prefixes[]|.prefix' 2>/dev/null ||
@@ -161,6 +161,8 @@ curl_githubusercontent https://raw.githubusercontent.com/eliozy/Qumtumult-X/mast
 	sed -n 's+^DOMAIN-SUFFIX,++p' | sed 's+,.*++g' >>direct.new
 curl_githubusercontent https://raw.githubusercontent.com/marsgogo/Surge/main/Weixin.list |
 	sed -n 's+^DOMAIN[^,]*,++p' >>direct.new
+curl_githubusercontent https://raw.githubusercontent.com/JC-SYSU/test/main/WhiteList.list |
+	awk -F',' '{print $2}' | sed '/[0-9]$/d' >>direct.new
 
 # blacklist
 sed '/google/d; /gstatic/d; /youtube/d; /^android/d;' -i direct.new
